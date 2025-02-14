@@ -535,7 +535,7 @@
         <p align="center" style="font-size:13px;">*Consulte o regulamento da promoção.</p>
       </div>
 	  <div class="col-md-12 d-flex justify-content-center">
-        <a class="plan-view-contract" href="contrato_scm.pdf"
+        <a class="plan-view-contract" href="https://drive.google.com/file/d/1U5KXjNnGdz1g3zSurvKm8uESjXoKiHjA/view?usp=drive_link"
           target="_blank" rel="noopener noreferrer"> <img class="img-view-contract"
             src="assets/img/contract.png" alt="Ícone contrato"> Contrato</a>
       </div>
