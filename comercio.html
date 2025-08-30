@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#ff8101">
   <link rel="icon" type="image/png" href="assets/img/icone.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-      <title>AGT Fibra - Comercio</title>
+      <title>AGT Fibra - Comércio</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0, shrink-to-fit=no'
     name='viewport'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -44,115 +44,93 @@
             &nbsp;&nbsp;&nbsp;
           </div>
 
-          <!-- LINK DO FONT AWESOME (coloque no <head> do seu projeto) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- MENU -->
-<nav class="menu">
-  <ul>
-    <li>
-      <a href="javascript:;">Planos <i class="fa-solid fa-caret-down"></i></a>
-      <ul class="submenu">
-        <li><a href="residencia.html"><i class="fa-solid fa-house"></i> Residência</a></li>
-        <li><a href="comercio.html"><i class="fa-solid fa-building"></i> Comércio</a></li>
-        <li><a href="radio.html"><i class="fa-solid fa-tower-broadcast"></i> Rádio</a></li>
-      </ul>
-    </li>
+<!-- MENU PLANOS -->
+<div class="navbar-content_list-item dropdown">
+  <a href="javascript:void(0)" class="navbar-content_list-item_link planos-link">
+    Planos <span class="arrow">▾</span>
+  </a>
+  <ul class="submenu planos-submenu">
+    <li><a href="residencia.html"><i class="fas fa-home"></i> Residência</a></li>
+    <li><a href="comercio.html"><i class="fas fa-store"></i> Comércio</a></li>
+    <li><a href="radio.html"><i class="fa-solid fa-tower-broadcast"></i> Rádio</a></li>
   </ul>
-</nav>
+</div>
 
-
-<!-- ESTILO -->
 <style>
-  .menu {
-    background: none;
-    padding: 15px;
-    font-family: normal;
-  }
-
-  .menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu ul li {
-    position: relative;
-    display: inline-block;
-  }
-
-  .menu > ul > li > a {
-    color: #fff;
-    padding: 12px 18px;
-    display: block;
-    text-decoration: none;
-    font-weight: sans-serif;
-    transition: 0.3s;
-  }
-
-  .menu > ul > li > a:hover {
-    background: #1c1c3c;
-    border-radius: 5px;
-  }
-
-  /* Submenu */
-  .submenu {
-    display: none;
-    position: absolute;
-    background: #7a0000;
-    min-width: 200px;
-    z-index: 999;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .submenu li {
-    display: block;
-  }
-
-  .submenu li a {
-    color: #fff;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .submenu li a:hover {
-    background: #32325d;
-  }
-
-  /* Mostrar submenu ao passar o mouse */
-  .menu ul li:hover .submenu {
-    display: block;
-  }
-
-@media (max-width: 768px) {
-  .plan-inner-title {
-    font-size: 28px !important;
-  }
-  .pricing-value {
-    font-size: 32px !important;
-  }
-  .botao-header {
-    flex: 1 1 100%;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .submenu {
-    display: none;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-left: 15px;
-  }
-  .has-submenu.open > .submenu {
-    display: flex;
-  }
+.planos-link::after {
+  content: none !important;
 }
 
+.planos-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.active .planos-link .arrow {
+  transform: rotate(180deg);
+}
+
+/* Submenu Planos */
+.planos-submenu {
+  display: none; /* inicialmente escondido */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #7a0000;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 180px;
+  z-index: 9999;
+
+  list-style: none; /* remove bolinhas */
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown.active .planos-submenu {
+  display: block; /* mostra submenu ao abrir */
+}
+
+.planos-submenu li a {
+  display: flex;           /* para alinhar ícone e texto */
+  align-items: center;
+  gap: 8px;                /* espaço entre ícone e texto */
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.planos-submenu li a:hover {
+  background: #a10000;
+}
+
+@media (max-width: 768px) {
+  .planos-submenu {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .planos-submenu li a {
+    padding: 12px 0;
+  }
+}
 </style>
+
+<script>
+document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+  const toggle = dropdown.querySelector('.planos-link');
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+  });
+});
+</script>
+
+<!-- Link do Font Awesome (caso ainda não tenha no site) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 		  <div class="navbar-content_list-item">
             <a class="navbar-content_list-item_link" href="quemsomos.html">Quem Somos</a>
@@ -208,42 +186,90 @@
         </div>
       </div>
     </div>
-    <div class="responsive-menu">
-      <div class="text-center">
-        <span>Menu</span>
-      </div>
-      <nav class="responsive-navigation-menu">
-        <ul class=" d-flex flex-column">
-          <li class="py-2"><a href="index.html">Principal</a></li>
 
-  <header>
-  <div class="responsive-menu">
-    <div class="text-center">
-      <span>Menu</span>
-    </div>
-    
-    <!-- Aqui chamamos o menu que configuramos -->
-    <nav class="responsive-navigation-menu">
-      <ul class="d-flex flex-column">
-        <li class="py-2"><a href="fibra.html">Planos Fibra</a></li>
-        <li class="py-2"><a href="empresa.html">Para Empresas</a></li>
-        <li class="py-2"><a href="contato.html">Contato</a></li>
-      </ul>
-    </nav>
+
+<div class="responsive-menu">
+  <div class="text-center">
+    <span>Menu</span>
   </div>
-</header>
+  <nav class="responsive-navigation-menu">
+    <ul class="d-flex flex-column">
+      <li class="py-2"><a href="index.html">Principal</a></li>
 
-          <li class="py-2"><a href="quemsomos.html">Quem Somos</a></li>
-          <li class="py-2"><a href="fale-conosco.html">Fale conosco</a></li>
-          <li class="py-2"><a href="https://assinante.agtfibra.com.br/" rel="noreferrer"
-              target="_blank">Área do cliente</a></li>
+      <!-- MENU PLANOS RESPONSIVO -->
+      <li class="py-2 dropdown-responsive">
+        <a href="javascript:void(0)" class="dropdown-toggle-responsive">
+          Planos <span class="arrow">▾</span>
+        </a>
+        <ul class="submenu-responsive">
+          <li><a href="residencia.html"><i class="fas fa-home"></i> Residência</a></li>
+          <li><a href="comercio.html"><i class="fas fa-store"></i> Comércio</a></li>
+          <li><a href="radio.html"><i class="fa-solid fa-tower-broadcast"></i> Rádio</a></li>
         </ul>
-      </nav><!-- Fim nav -->
-    </div>
-  </nav>
-</div>
-<div class="content">
+      </li>
 
+      <li class="py-2"><a href="quemsomos.html">Quem Somos</a></li>
+      <li class="py-2"><a href="fale-conosco.html">Fale conosco</a></li>
+      <li class="py-2"><a href="https://assinante.agtfibra.com.br/" rel="noreferrer" target="_blank">Área do cliente</a></li>
+    </ul>
+  </nav><!-- Fim nav -->
+</div>
+
+<style>
+/* Submenu responsivo apenas para Planos */
+.submenu-responsive {
+  display: none; /* inicialmente escondido */
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 15px; /* identação */
+}
+
+.submenu-responsive li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu-responsive li a:hover {
+  color: #7a0000;
+}
+
+/* Seta giratória */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-responsive.active .arrow {
+  transform: rotate(180deg);
+}
+</style>
+
+<script>
+document.querySelectorAll('.dropdown-toggle-responsive').forEach(function(toggle) {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const parent = toggle.parentElement;
+    parent.classList.toggle('active');
+    const submenu = parent.querySelector('.submenu-responsive');
+    if(submenu.style.display === 'block'){
+      submenu.style.display = 'none';
+    } else {
+      submenu.style.display = 'block';
+    }
+  });
+});
+</script>
+
+<!-- Link Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    
+
+<div class="content">
 <section>
   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
