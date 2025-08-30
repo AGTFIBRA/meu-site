@@ -44,115 +44,94 @@
             &nbsp;&nbsp;&nbsp;
           </div>
 
-          <!-- LINK DO FONT AWESOME (coloque no <head> do seu projeto) -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- MENU -->
-<nav class="menu">
-  <ul>
-    <li>
-      <a href="javascript:;">Planos <i class="fa-solid fa-caret-down"></i></a>
-      <ul class="submenu">
-        <li><a href="residencia.html"><i class="fa-solid fa-house"></i> Residência</a></li>
-        <li><a href="comercio.html"><i class="fa-solid fa-building"></i> Comércio</a></li>
-        <li><a href="radio.html"><i class="fa-solid fa-tower-broadcast"></i> Rádio</a></li>
-      </ul>
-    </li>
+<!-- MENU PLANOS -->
+<div class="navbar-content_list-item dropdown">
+  <a href="javascript:void(0)" class="navbar-content_list-item_link planos-link">
+    Planos <span class="arrow">▾</span>
+  </a>
+  <ul class="submenu planos-submenu">
+    <li><a href="residencia.html"><i class="fas fa-home"></i> Residência</a></li>
+    <li><a href="comercio.html"><i class="fas fa-store"></i> Comércio</a></li>
+    <li><a href="radio.html"><i class="fa-solid fa-tower-broadcast"></i> Rádio</a></li>
   </ul>
-</nav>
+</div>
 
-
-<!-- ESTILO -->
 <style>
-  .menu {
-    background: none;
-    padding: 15px;
-    font-family: normal;
-  }
-
-  .menu ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  .menu ul li {
-    position: relative;
-    display: inline-block;
-  }
-
-  .menu > ul > li > a {
-    color: #fff;
-    padding: 12px 18px;
-    display: block;
-    text-decoration: none;
-    font-weight: sans-serif;
-    transition: 0.3s;
-  }
-
-  .menu > ul > li > a:hover {
-    background: #1c1c3c;
-    border-radius: 5px;
-  }
-
-  /* Submenu */
-  .submenu {
-    display: none;
-    position: absolute;
-    background: #7a0000;
-    min-width: 200px;
-    z-index: 999;
-    border-radius: 6px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
-
-  .submenu li {
-    display: block;
-  }
-
-  .submenu li a {
-    color: #fff;
-    padding: 10px 15px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: 0.3s;
-  }
-
-  .submenu li a:hover {
-    background: #32325d;
-  }
-
-  /* Mostrar submenu ao passar o mouse */
-  .menu ul li:hover .submenu {
-    display: block;
-  }
-
-@media (max-width: 768px) {
-  .plan-inner-title {
-    font-size: 28px !important;
-  }
-  .pricing-value {
-    font-size: 32px !important;
-  }
-  .botao-header {
-    flex: 1 1 100%;
-    margin-bottom: 8px;
-    text-align: center;
-  }
-  .submenu {
-    display: none;
-    flex-direction: column;
-    margin-top: 5px;
-    margin-left: 15px;
-  }
-  .has-submenu.open > .submenu {
-    display: flex;
-  }
+.planos-link::after {
+  content: none !important;
 }
 
+.planos-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.dropdown.active .planos-link .arrow {
+  transform: rotate(180deg);
+}
+
+/* Submenu Planos */
+.planos-submenu {
+  display: none; /* inicialmente escondido */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #7a0000;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  min-width: 180px;
+  z-index: 9999;
+
+  list-style: none; /* remove bolinhas */
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown.active .planos-submenu {
+  display: block; /* mostra submenu ao abrir */
+}
+
+.planos-submenu li a {
+  display: flex;           /* para alinhar ícone e texto */
+  align-items: center;
+  gap: 8px;                /* espaço entre ícone e texto */
+  padding: 10px 20px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.planos-submenu li a:hover {
+  background: #a10000;
+}
+
+@media (max-width: 768px) {
+  .planos-submenu {
+    position: relative;
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .planos-submenu li a {
+    padding: 12px 0;
+  }
+}
 </style>
+
+<script>
+document.querySelectorAll('.dropdown').forEach(function(dropdown) {
+  const toggle = dropdown.querySelector('.planos-link');
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    dropdown.classList.toggle('active');
+  });
+});
+</script>
+
+<!-- Link do Font Awesome (caso ainda não tenha no site) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 
 		    <div class="navbar-content_list-item">
             <a class="navbar-content_list-item_link" href="quemsomos.html">Quem Somos</a>
