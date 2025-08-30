@@ -187,23 +187,88 @@ document.querySelectorAll('.dropdown').forEach(function(dropdown) {
         </div>
       </div>
     </div>
+
+
 <div class="responsive-menu">
-      <div class="text-center">
-        <span>Menu</span>
-      </div>
-      <nav class="responsive-navigation-menu">
-        <ul class=" d-flex flex-column">
-          <li class="py-2"><a href="index.html">Principal</a></li>
-          <li class="py-2"><a href="quemsomos.html">Quem Somos</a></li>
-          <li class="py-2"><a href="fale-conosco.html">Fale conosco</a></li>
-          <li class="py-2"><a href="https://assinante.agtfibra.com.br/" rel="noreferrer"
-              target="_blank">Área do cliente</a></li>
+  <div class="text-center">
+    <span>Menu</span>
+  </div>
+  <nav class="responsive-navigation-menu">
+    <ul class="d-flex flex-column">
+      <li class="py-2"><a href="index.html">Principal</a></li>
+
+      <!-- MENU PLANOS RESPONSIVO -->
+      <li class="py-2 dropdown-responsive">
+        <a href="javascript:void(0)" class="dropdown-toggle-responsive">
+          Planos <span class="arrow">▾</span>
+        </a>
+        <ul class="submenu-responsive">
+          <li><a href="residencia.html"><i class="fas fa-home"></i> Residência</a></li>
+          <li><a href="comercio.html"><i class="fas fa-store"></i> Comércio</a></li>
+          <li><a href="radio.html"><i class="fas fa-wifi"></i> Rádio</a></li>
         </ul>
-      </nav><!-- Fim nav -->
+      </li>
+
+      <li class="py-2"><a href="quemsomos.html">Quem Somos</a></li>
+      <li class="py-2"><a href="fale-conosco.html">Fale conosco</a></li>
+      <li class="py-2"><a href="https://assinante.agtfibra.com.br/" rel="noreferrer" target="_blank">Área do cliente</a></li>
+    </ul>
+  </nav><!-- Fim nav -->
 </div>
 
-<!-- FONT AWESOME (se ainda não tiver no <head>) -->
+<style>
+/* Submenu responsivo apenas para Planos */
+.submenu-responsive {
+  display: none; /* inicialmente escondido */
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 15px; /* identação */
+}
+
+.submenu-responsive li a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  color: #333;
+  text-decoration: none;
+}
+
+.submenu-responsive li a:hover {
+  color: #7a0000;
+}
+
+/* Seta giratória */
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-responsive.active .arrow {
+  transform: rotate(180deg);
+}
+</style>
+
+<script>
+document.querySelectorAll('.dropdown-toggle-responsive').forEach(function(toggle) {
+  toggle.addEventListener('click', function(e) {
+    e.preventDefault();
+    const parent = toggle.parentElement;
+    parent.classList.toggle('active');
+    const submenu = parent.querySelector('.submenu-responsive');
+    if(submenu.style.display === 'block'){
+      submenu.style.display = 'none';
+    } else {
+      submenu.style.display = 'block';
+    }
+  });
+});
+</script>
+
+<!-- Link Font Awesome -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
 
 <style>
   .responsive-navigation-menu ul {
